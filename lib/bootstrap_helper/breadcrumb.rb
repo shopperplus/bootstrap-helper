@@ -40,7 +40,7 @@ module BootstrapHelper
 
     module Helpers
 
-      def render_breadcrumb
+      def render_breadcrumb(divider='/')
         return "" if @breadcrumbs.size <= 0
         prefix = "".html_safe
         crumb = "".html_safe
@@ -53,7 +53,7 @@ module BootstrapHelper
           if i == (@breadcrumbs.length - 1)
             breadcrumb_content = c
           else
-            breadcrumb_content = c + " " + content_tag(:span, "/", :class => "divider")
+            breadcrumb_content = c + " " + content_tag(:span, divider, :class => "divider")
           end
 
           crumb += content_tag(:li, breadcrumb_content ,:class => breadcrumb_class ) + "\n"
